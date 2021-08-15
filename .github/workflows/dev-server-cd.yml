@@ -25,8 +25,7 @@ jobs:
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - name: test
-          run: 
-            cat >>~/test <<END
+        run: cat >>~/test <<END
               Hi, this is Test
             END
           
