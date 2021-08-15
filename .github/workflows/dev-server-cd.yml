@@ -15,7 +15,7 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/develop.key
           chmod 600 ~/.ssh/develop.key
           cat >>~/.ssh/config <<END
-          Host dev
+          Host develop
             HostName $SSH_HOST
             User $SSH_USER
             IdentityFile ~/.ssh/develop.key
