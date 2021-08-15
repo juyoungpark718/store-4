@@ -25,6 +25,16 @@ jobs:
           SSH_HOST: ${{ secrets.DEV_HOSTNAME }}
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
-      - name: Nodejs Server
-        run: ssh dev 'cd ~/store-4 && git checkout develop && git pull origin develop && cd server && npm i'
-          
+      - uses: technote-space/get-diff-action@v4
+        with:
+          PATTERNS:
+            FILES: |
+              server/package.json
+      - name: Checkout and Pull origin
+        run: ssh develop 'cd ~/store-4 && git checkout develop && git pull origin'
+      
+      - name: if changed dependencies, install dependencies 
+        run: ssh develop 'cd ~/store-4/server && npm i'
+        if: env.GET_DIFF
+        
+        
