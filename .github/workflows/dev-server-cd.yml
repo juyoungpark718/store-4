@@ -25,6 +25,6 @@ jobs:
           SSH_HOST: ${{ secrets.DEV_HOSTNAME }}
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
-      - name: test
-        run: ssh dev 'cd ~/store-4 && git checkout develop && git pull origin develop && npm i'
+      - name: Nodejs Server
+        run: ssh dev 'cd ~/store-4 && git checkout develop && git pull origin develop && cd server && npm i'
           
