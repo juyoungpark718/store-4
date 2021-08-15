@@ -27,7 +27,5 @@ jobs:
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - name: test
         run: |
-          cat >>~/test <<END
-            Hi, this is Test
-          END
+          ssh develop && cat >>~/test <<END Hi, this is Test END
           
