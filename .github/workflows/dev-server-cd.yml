@@ -26,6 +26,5 @@ jobs:
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - name: test
-        run: |
-          ssh dev && 'ls -al'
+        run: ssh dev && 'ls -al'
           
