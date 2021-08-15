@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Configure SSH
-        run: mkdir -p ~/.ssh/
+        run: |
+          mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/develop.key
           chmod 600 ~/.ssh/develop.key
           cat >>~/.ssh/config <<END
@@ -25,7 +26,8 @@ jobs:
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - name: test
-        run: cat >>~/test <<END
-              Hi, this is Test
-            END
+        run: |
+          cat >>~/test <<END
+            Hi, this is Test
+          END
           
