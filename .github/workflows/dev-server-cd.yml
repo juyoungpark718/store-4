@@ -27,5 +27,5 @@ jobs:
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - name: test
         run: |
-          ssh dev && 'cd store-4 && git checkout develop && git pull origin develop && npm i'
+          ssh dev && 'cd ~/store-4 && git checkout develop && git pull origin develop && npm i'
           
