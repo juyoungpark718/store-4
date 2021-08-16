@@ -52,8 +52,6 @@ jobs:
         with:
           PATTERNS: |
             client/src/**/*.(tsx|ts)
-          FILES: |
-            client/package.json
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -74,11 +72,8 @@ jobs:
           SSH_HOST: ${{ secrets.DEV_HOSTNAME }}
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
-      - name: install dependencies 
-        run: cd client && npm i
-        if: env.GIT_MATCHED_FILES
       - name: Run build script && Sync build files to server
-        run: cd client && npm run build && rsync -avz ./dist/ develop:~/store-4/frontend/dist
+        run: cd client && npm i && npm run build && rsync -avz ./dist/ develop:~/store-4/frontend/dist
         if: env.GIT_DIFF
 
         

@@ -5,3 +5,5 @@ export const isNone = <T>(value: T | undefined | null): value is undefined | nul
 export const isNotNone = <T>(value: T | undefined | null): value is T => {
   return !isNone(value);
 };
+
+export const identity = v => v;
