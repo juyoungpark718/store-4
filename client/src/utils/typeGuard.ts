@@ -6,4 +6,4 @@ export const isNotNone = <T>(value: T | undefined | null): value is T => {
   return !isNone(value);
 };
 
-export const identity = v => v;
+export const identity = (v:any) => v;

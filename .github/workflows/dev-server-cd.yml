@@ -51,7 +51,7 @@ jobs:
       - uses: technote-space/get-diff-action@v4
         with:
           PATTERNS: |
-            +(src|__tests__)/**/*.tsx
+            client/src/**/*.+(ts|tsx)
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
