@@ -15,7 +15,7 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/develop.key
           chmod 600 ~/.ssh/develop.key
           cat >>~/.ssh/config <<END
-          Host develop
+          Host dev
             HostName $SSH_HOST
             User $SSH_USER
             IdentityFile ~/.ssh/develop.key
@@ -27,8 +27,9 @@ jobs:
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - uses: technote-space/get-diff-action@v4
         with:
-          FILES: |
-            server/package.json
+          PATTERNS:
+            FILES: |
+              server/package.json
       - name: Checkout and Pull origin
         run: ssh develop 'cd ~/store-4 && git checkout develop && git pull origin'
       
