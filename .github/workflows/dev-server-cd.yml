@@ -27,9 +27,8 @@ jobs:
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - uses: technote-space/get-diff-action@v4
         with:
-          PATTERNS:
-            FILES: |
-              server/package.json
+          FILES: |
+            server/package.json
       - name: Checkout and Pull origin
         run: ssh develop 'cd ~/store-4 && git checkout develop && git pull origin'
       
