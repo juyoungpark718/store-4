@@ -13,7 +13,7 @@ const startServer = async () => {
   app.use('/auth', authRouter);
 
   app.listen(dotenv.PORT, () => {
-    console.log(`Running ${dotenv.PORT}`);
+    console.log(`Running ${dotenv.PORT} !!!!`);
   });
 };
 
