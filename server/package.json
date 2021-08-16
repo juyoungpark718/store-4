@@ -27,7 +27,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "fxjs": "^0.21.3",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.0",
