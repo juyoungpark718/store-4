@@ -7,17 +7,14 @@ on:
 jobs:
   backend:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: server
     steps:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v4
         with:
           PATTERNS: |
-            +(src)/**/*
+            +(server/src)/**/*
           FILES: |
-            package.json
+            server/package.json
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
@@ -49,17 +46,14 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-    defaults:
-      run:
-        working-directory: client
     steps:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v4
         with:
           PATTERNS: |
-            +(src)/**/*
+            +(client/src)/**/*
           FILES: |
-            package.json
+            client/package.json
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -81,10 +75,10 @@ jobs:
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - name: install dependencies 
-        run: npm i
+        run: cd client && npm i
         if: env.GIT_MATCHED_FILES
       - name: Run build script && Sync build files to server
-        run: npm run build && rsync -avz ./dist/ develop:~/store-4/frontend/dist
+        run: cd client && npm run build && rsync -avz ./dist/ develop:~/store-4/frontend/dist
         if: env.GIT_DIFF
 
         
