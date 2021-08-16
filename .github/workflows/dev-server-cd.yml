@@ -52,6 +52,7 @@ jobs:
         with:
           PATTERNS: |
             +(client/src)/**/*.*
+            +(client/src)/*.*
           FILES: |
             client/package.json
       - name: Use Node.js ${{ matrix.node-version }}
