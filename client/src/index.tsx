@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Home from "./pages/Home"
 
-ReactDOM.render(<div>Hello, plz...awefawef!awefawefaawefawefaweawefawef!!!asdf</div>, document.querySelector('#root'));
+ReactDOM.render(<Home />, document.querySelector('#root'));
