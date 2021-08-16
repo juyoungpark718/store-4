@@ -86,7 +86,7 @@ jobs:
         run: npm run build
       - name: Sync build files to server
         run: rsync -avz ./dist/ develop:~/store-4/frontend/dist
-  if: env.GIT_DIFF
+    if: env.GIT_DIFF
 
         
         
