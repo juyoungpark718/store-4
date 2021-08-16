@@ -37,6 +37,6 @@ jobs:
         if: env.GIT_MATCHED_FILES
 
       - name: Reload Pm2
-        run: ssh develop 'cd ~/store-4 && npm run build && sudo pm2 reload store-4'
+        run: ssh develop 'cd ~/store-4/server && npm run build && sudo pm2 reload store-4'
         
         
