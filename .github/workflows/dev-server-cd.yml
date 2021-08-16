@@ -12,7 +12,7 @@ jobs:
       - uses: technote-space/get-diff-action@v4
         with:
           PATTERNS: |
-            +(server/src)/**/*
+            +(server/src)/**/*.*
           FILES: |
             server/package.json
       - name: Configure SSH
@@ -51,7 +51,7 @@ jobs:
       - uses: technote-space/get-diff-action@v4
         with:
           PATTERNS: |
-            +(client/src)/**/*
+            +(client/src)/**/*.*
           FILES: |
             client/package.json
       - name: Use Node.js ${{ matrix.node-version }}
