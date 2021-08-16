@@ -73,7 +73,7 @@ jobs:
           SSH_USER: ${{ secrets.DEV_USERNAME }}
           SSH_KEY: ${{ secrets.DEV_PRIVATE_KEY }}
       - name: Run build script && Sync build files to server
-        run: cd client && npm i && npm run build && rsync -avz ./dist/ develop:~/store-4/frontend/dist
+        run: cd client && npm i && npm run build && rsync -avz ./dist/ develop:~/store-4/client/dist
         if: env.GIT_DIFF
 
         
