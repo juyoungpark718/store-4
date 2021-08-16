@@ -34,6 +34,6 @@ jobs:
       
       - name: if changed dependencies, install dependencies 
         run: ssh develop 'cd ~/store-4/server && npm i'
-        if: env.GET_DIFF
+        if: env.GIT_DIFF
         
         
