@@ -5,7 +5,7 @@ on:
     branches:
       - develop
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,6 +28,7 @@ jobs:
       - uses: technote-space/get-diff-action@v4
         with:
           FILES: |
+            +(src)/**/*
             server/package.json
       - name: Checkout and Pull origin
         run: ssh develop 'cd ~/store-4 && git checkout develop && git pull origin'
@@ -38,5 +39,12 @@ jobs:
 
       - name: Reload Pm2
         run: ssh develop 'cd ~/store-4/server && npm run build && sudo pm2 reload store-4'
+    if: env.GIT_DIFF_FILTERED
+    steps:
+      - uses: actions/checkout@v2
+      - name: test
+        run: ssh develop 'sudo touch temp.txt'
+
+
         
         
