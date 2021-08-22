@@ -15,8 +15,7 @@ jobs:
             src/**/*.+(ts|tsx)
           FILES: |
             package.json
-          RELATIVE: |
-            server
+          RELATIVE: "server"
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
